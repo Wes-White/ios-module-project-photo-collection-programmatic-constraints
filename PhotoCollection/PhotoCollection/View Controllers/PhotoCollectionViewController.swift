@@ -1,11 +1,3 @@
-//
-//  PhotoCollectionViewController.swift
-//  PhotoCollection
-//
-//  Created by Spencer Curtis on 8/2/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
-
 import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
@@ -37,7 +29,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
     
     private func setTheme() {
-    
+        
         guard let themePreference = themeHelper.themePreference else { return }
         
         var backgroundColor: UIColor!
@@ -85,5 +77,19 @@ class PhotoCollectionViewController: UICollectionViewController {
         default:
             break
         }
+    }
+}
+
+extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 400)
     }
 }
